@@ -1,11 +1,11 @@
-import {Component, ViewChild, ViewContainerRef, Inject, Injector, ComponentFactoryResolver, OnInit} from '@angular/core';
-
+import { Component, ViewChild, ViewContainerRef, Inject, Injector, ComponentFactoryResolver, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-flights-search',
-  templateUrl: './flights-search.component.html'
+  selector: 'app-shash-quash',
+  templateUrl: './shash-quash.component.html',
+  styleUrls: ['./shash-quash.component.css'],
 })
-export class FlightsSearchComponent {
+export class ShashQuashComponent {
 
   @ViewChild('vc', { read: ViewContainerRef, static: true })
   viewContainer: ViewContainerRef;

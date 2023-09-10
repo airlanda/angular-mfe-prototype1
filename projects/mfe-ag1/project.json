@@ -1,0 +1,121 @@
+{
+  "name": "projects-mfe-ag1",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "prefix": "app",
+  "sourceRoot": "projects/mfe-ag1/src",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/angular:webpack-browser",
+      "outputs": [
+        "{options.outputPath}"
+      ],
+      "options": {
+        "outputPath": "dist/projects/mfe-ag1",
+        "index": "projects/mfe-ag1/src/index.html",
+        "main": "projects/mfe-ag1/src/main.ts",
+        "polyfills": "projects/mfe-ag1/src/polyfills.ts",
+        "tsConfig": "projects/mfe-ag1/tsconfig.app.json",
+        "assets": [
+          "projects/mfe-ag1/src/favicon.ico",
+          "projects/mfe-ag1/src/assets"
+        ],
+        "styles": [
+          "projects/mfe-ag1/src/styles.css"
+        ],
+        "scripts": [],
+        "customWebpackConfig": {
+          "path": "projects/mfe-ag1/webpack.config.js"
+        },
+        "commonChunk": false
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "fileReplacements": [
+            {
+              "replace": "projects/mfe-ag1/src/environments/environment.ts",
+              "with": "projects/mfe-ag1/src/environments/environment.prod.ts"
+            }
+          ],
+          "outputHashing": "all",
+          "customWebpackConfig": {
+            "path": "projects/mfe-ag1/webpack.prod.config.js"
+          }
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@nx/angular:webpack-dev-server",
+      "configurations": {
+        "production": {
+          "browserTarget": "projects-mfe-ag1:build:production"
+        },
+        "development": {
+          "browserTarget": "projects-mfe-ag1:build:development"
+        }
+      },
+      "defaultConfiguration": "development",
+      "options": {
+        "port": 4333,
+        "publicHost": "http://localhost:4333"
+      }
+    },
+    "extract-i18n": {
+      "executor": "ngx-build-plus:extract-i18n",
+      "options": {
+        "browserTarget": "projects-mfe-ag1:build",
+        "extraWebpackConfig": "projects/mfe-ag1/webpack.config.js"
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": [
+        "{options.outputFile}"
+      ],
+      "options": {
+        "lintFilePatterns": [
+          "projects/mfe-ag1/**/*.ts",
+          "projects/mfe-ag1/**/*.html"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": [
+        "{workspaceRoot}/coverage/{projectRoot}"
+      ],
+      "options": {
+        "jestConfig": "projects/mfe-ag1/jest.config.ts",
+        "passWithNoTests": true
+      },
+      "configurations": {
+        "ci": {
+          "ci": true,
+          "codeCoverage": true
+        }
+      }
+    }
+  }
+}

@@ -14,5 +14,13 @@
 		"displayName": "Bookings",
 		"routePath": "bookings",
 		"ngModuleName": "BookingsModule"
+	},
+	"mfe-ag1": {
+		"remoteEntry": "http://localhost:4333/remoteEntry.js",
+
+		"exposedModule": "./Module",
+		"displayName": "Shash",
+		"routePath": "shash",
+		"ngModuleName": "ShashModule"
 	}
 }

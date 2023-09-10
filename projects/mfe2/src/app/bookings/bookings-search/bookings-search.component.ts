@@ -21,7 +21,7 @@ export class BookingsSearchComponent {
     const comp = await import('../lazy/lazy.component').then(m => m.LazyComponent);
 
     const factory = this.cfr.resolveComponentFactory(comp);
-    this.viewContainer.createComponent(factory, null, this.injector);
+    this.viewContainer.createComponent(factory, 0, this.injector);
   }
 
 
