@@ -2,6 +2,8 @@
 
 Demonstrates webpack 5 Module Federation with Angular and the Angular Router.
 
+Ag: Integrated a simple react mfe
+
 ## Start
 
 - Install dependencies with yarn (!)
