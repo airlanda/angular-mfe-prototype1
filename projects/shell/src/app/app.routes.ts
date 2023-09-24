@@ -2,6 +2,7 @@ import { Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { ConfigComponent } from './config/config.component';
 import { loadRemoteModule } from '@angular-architects/module-federation';
+import { WebComponentWrapper, WebComponentWrapperOptions } from '@angular-architects/module-federation-tools';
 
 export const APP_ROUTES: Routes = [
     {
@@ -12,6 +13,17 @@ export const APP_ROUTES: Routes = [
     {
       path: 'config',
       component: ConfigComponent
+    },
+    {
+      path: 'react',
+      component: WebComponentWrapper,
+      data: {
+        type: 'script',
+        remoteEntry: 'http://localhost:4204/remoteEntry.js',
+        remoteName: 'react',
+        exposedModule: './web-components',
+        elementName: 'react-element',
+      } as WebComponentWrapperOptions,
     },
     // {
     //   path: 'flights',

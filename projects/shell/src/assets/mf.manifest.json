@@ -23,4 +23,5 @@
 		"routePath": "shash",
 		"ngModuleName": "ShashModule"
 	}
+	
 }
